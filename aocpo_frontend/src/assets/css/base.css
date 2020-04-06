@@ -1,0 +1,15 @@
+@import "normalize.css";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    color: #3d3d4c;
+    line-height: 1.5;
+    font-family: STHeiti;
+    background: #f1f3f7;
+    word-break: break-all;
+}
+
