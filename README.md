@@ -3,7 +3,7 @@ Analysis of campus public opinions
 # aocpo_release
 Analysis of campus public opinion in Chinese colleges and universities
 
-## Warning: 该运行方法较为繁琐，本项目已通过docker封装，可用过docker运行，[具体链接](https://github.com/CoderChen01/aocpo_release/blob/master/docker-run.md)
+## Warning: 该运行方法较为繁琐，本项目已通过docker封装，可用过docker运行，[具体链接](https://github.com/CoderChen01/aocpo/docker-run.md)
 
 * 请安装python依赖利用文件夹里的requirements.txt，此外安装PaddlePaddle框架，因为AI模型基于它
 
