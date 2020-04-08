@@ -22,7 +22,7 @@ cssselect==1.1.0
 cycler==0.10.0
 decorator==4.4.0
 defusedxml==0.6.0
-Django==3.0.2
+Django==3.0.3
 django-apscheduler==0.3.0
 django-cors-headers==3.2.1
 djangorestframework==3.11.0
