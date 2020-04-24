@@ -48,7 +48,7 @@ docker run --name aocpo_predictor --network aocpo -d registry.cn-hangzhou.aliyun
 ```
 
 ```shell
-docker run --name aocpo_predictor_server --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor_server:1.0.0
+docker run --name aocpopredictorserver --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor_server:1.0.0
 ```
 
 ### 2.爬虫
