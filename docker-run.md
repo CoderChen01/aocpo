@@ -14,7 +14,7 @@ docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor_server
 
 ### 2.爬虫镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:1.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
 ```
 ### 3.redis数据库镜像
 ```shell
@@ -26,18 +26,18 @@ docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_mongodb:1.0.0
 ```
 ### 5.aocpo系统镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:1.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
 ```
 ```shell
 docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:1.0.0
 ```
 ### 6.Middleman模块镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:1.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:2.0.0
 ```
 ## 二、自定义网络
 ```shell
-docker network creat -d bridge aocpo
+docker network create -d bridge aocpo
 ```
 ## 三、创建容器
 
@@ -54,7 +54,7 @@ docker run --name aocpopredictorserver --network aocpo -d registry.cn-hangzhou.a
 ### 2.爬虫
 
 ```shell
-docker run --name aocpo_scrapyd --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:1.0.0
+docker run --name aocpo_scrapyd --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
 ```
 
 ### 3.redis数据库
@@ -77,16 +77,16 @@ docker exec -it aocpo_mongodb mongorestore -d schoolData ~/schoolData
 ### 5.aocpo系统
 
 ```shell
-docker run --name aocpo_backend --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:1.0.0
+docker run --name aocpo_backend --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:1.0.0
 ```
 ```shell
-docker run --name aocpo --network aocpo -p 80:80 -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:1.0.0
+docker run --name aocpo --network aocpo -p 80:80 -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
 ```
 
 ### 6.Middleman
 
 ```shell
-docker run --name aocpo_middleman --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:1.0.0
+docker run --name aocpo_middleman --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:2.0.0
 ```
 
 ### 7.查看容器运行状况
@@ -97,7 +97,7 @@ docker ps -a
 
 如果出现如下结果则说明容器正常运行：
 
-![运行结果](https://raw.githubusercontent.com/CoderChen01/aocpo/master/demo/docker-check.png)
+![运行结果](C:\Users\17322\AppData\Roaming\Typora\typora-user-images\1586183634066.png)
 
 ### 8.修改hosts文件
 
@@ -128,3 +128,4 @@ docker exec -it aocpo_mongodb mongorestore -d users /mongo_test/users
 ```
 
   3.最后可进入系统登录测试账号：18175006085 密码：10191019
+
