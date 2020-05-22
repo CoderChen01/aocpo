@@ -54,7 +54,7 @@ docker run --name aocpopredictorserver --network aocpo -d registry.cn-hangzhou.a
 ### 2.爬虫
 
 ```shell
-docker run --name aocpo_scrapyd --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
+docker run --name aocpo_scrapyd --network -e TZ="Asia/Shanghai" aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
 ```
 
 ### 3.redis数据库
