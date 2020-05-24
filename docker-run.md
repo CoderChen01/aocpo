@@ -44,29 +44,29 @@ docker network create -d bridge aocpo
 ### 1.AI预测服务
 
 ```shell
-docker run --name aocpo_predictor --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor:1.0.0
+docker run --name aocpo_predictor --network aocpo --restart always -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor:1.0.0
 ```
 
 ```shell
-docker run --name aocpopredictorserver --network aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor_server:1.0.0
+docker run --name aocpopredictorserver --network aocpo --restart always -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_predictor_server:1.0.0
 ```
 
 ### 2.爬虫
 
 ```shell
-docker run --name aocpo_scrapyd --network  aocpo -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
+docker run --name aocpo_scrapyd --network  aocpo --restart always -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
 ```
 
 ### 3.redis数据库
 
 ```shell
-docker run --name aocpo_redis --network aocpo -v /var/redis_data:/data -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_redis:1.0.0
+docker run --name aocpo_redis --network aocpo --restart always -e TZ="Asia/Shanghai" -v /var/redis_data:/data -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_redis:1.0.0
 ```
 
 ### 4.mongo数据库
 
 ```shell
-docker run --name aocpo_mongodb --network aocpo -v /var/mongo_data/db:/data/db -v \
+docker run --name aocpo_mongodb --network aocpo --restart always -e TZ="Asia/Shanghai" -v /var/mongo_data/db:/data/db -v \
 /var/mongo_data/configdb:/data/configdb -v /mongo_test:/mongo_test -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_mongodb:1.0.0
 ```
 
@@ -77,16 +77,16 @@ docker exec -it aocpo_mongodb mongorestore -d schoolData ~/schoolData
 ### 5.aocpo系统
 
 ```shell
-docker run --name aocpo_backend --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:2.0.0
+docker run --name aocpo_backend --network aocpo --restart always -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:2.0.0
 ```
 ```shell
-docker run --name aocpo --network aocpo -p 80:80 -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
+docker run --name aocpo --network aocpo -p 80:80 --restart always -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
 ```
 
 ### 6.Middleman
 
 ```shell
-docker run --name aocpo_middleman --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:3.0.0
+docker run --name aocpo_middleman --network aocpo --restart always -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:3.0.0
 ```
 
 ### 7.查看容器运行状况
