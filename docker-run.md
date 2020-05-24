@@ -29,11 +29,11 @@ docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_mongodb:1.0.0
 docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
 ```
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:1.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:2.0.0
 ```
 ### 6.Middleman模块镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:2.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:3.0.0
 ```
 ## 二、自定义网络
 ```shell
@@ -54,7 +54,7 @@ docker run --name aocpopredictorserver --network aocpo -d registry.cn-hangzhou.a
 ### 2.爬虫
 
 ```shell
-docker run --name aocpo_scrapyd --network -e TZ="Asia/Shanghai" aocpo -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
+docker run --name aocpo_scrapyd --network  aocpo -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_scrapyd:2.0.0
 ```
 
 ### 3.redis数据库
@@ -77,16 +77,16 @@ docker exec -it aocpo_mongodb mongorestore -d schoolData ~/schoolData
 ### 5.aocpo系统
 
 ```shell
-docker run --name aocpo_backend --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:1.0.0
+docker run --name aocpo_backend --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_backend:2.0.0
 ```
 ```shell
-docker run --name aocpo --network aocpo -p 80:80 -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
+docker run --name aocpo --network aocpo -p 80:80 -e TZ="Asia/Shanghai"  -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo:3.0.0
 ```
 
 ### 6.Middleman
 
 ```shell
-docker run --name aocpo_middleman --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:2.0.0
+docker run --name aocpo_middleman --network aocpo -e TZ="Asia/Shanghai" -d registry.cn-hangzhou.aliyuncs.com/coderchen01/aocpo_middleman:3.0.0
 ```
 
 ### 7.查看容器运行状况
