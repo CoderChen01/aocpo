@@ -97,7 +97,7 @@ docker ps -a
 
 如果出现如下结果则说明容器正常运行：
 
-![运行结果](C:\Users\17322\AppData\Roaming\Typora\typora-user-images\1586183634066.png)
+![运行结果](https://github.com/CoderChen01/aocpo/blob/master/demo/docker-check.png?raw=true)
 
 ### 8.修改hosts文件
 
